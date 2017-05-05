@@ -39,4 +39,21 @@ class ParamsGameController < ApplicationController
 		end	
 
 	end
+
+	def form_show
+		
+	end
+
+	def form_send
+		@message = params["form_number"].to_i
+		winning_numnber = 42
+		if winning_numnber < @message
+			@answer_message = "too high."
+		elsif winning_numnber > @message
+			@answer_message = "too low"
+		else 
+			@answer_message = "right on the money!"
+		end	
+		render 'form_show.html.erb'
+	end
 end
